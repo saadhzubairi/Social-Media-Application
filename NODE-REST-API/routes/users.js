@@ -44,15 +44,39 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        const {password, updatedAt,createdAt,isAdmin,_id,__v, ...others} = user._doc
+        const { password, updatedAt, createdAt, isAdmin, _id, __v, ...others } = user._doc
         res.status(200).json(others);
     }
-    catch (err){
+    catch (err) {
         res.status(500).json(err);
     }
-
 })
 
 //get all users
+
+//follow a user
+router.put("/:id/follow", async (req, res) => {
+    if (req.body.userId !== req.params.id) {
+        try {
+            //find user by the id
+            const user = await User.findById(req.params.id);
+            //create currenuser object from the body text from json
+            const currentUser = await User.findById(req.body.userId);
+            //check if the 'user' isn't already being followed by the current user
+            if (!user.followers.includes(req.body.userId)) {
+                //update the followers and followings list
+                await user.updateOne({ $push: { followers: req.body.userId } });
+                await currentUser.updateOne({ $push: { followings: req.params.id } });
+                res.status(200).json("user has been followed");
+            } else {
+                res.status(403).json("you allready follow this user");
+            }
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    } else {
+        res.status(403).json("you cant follow yourself");
+    }
+});
 
 module.exports = router
