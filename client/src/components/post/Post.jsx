@@ -18,7 +18,16 @@ function Post(props) {
                     <span className="postText">Crazy adventures everywhere!</span>
                     <img src="assets\post\1.jpeg" alt="" className="postImage" />
                 </div>
-                <div className="postBottom"></div>
+                <div className="postBottom">
+                    <div className="postBottomLeft">
+                        <img src="assets\like.png" alt="" className="postBottomLeftIcon" />
+                        <img src="assets\heart.png" alt="" className="postBottomLeftIcon" />
+                        <span className="postLikeCounter">17</span>
+                    </div>
+                    <div className="postBottomRight">
+                        <span className="postCommentcount">9 comments</span>
+                    </div>
+                </div>
             </div>
         </div>
     )
