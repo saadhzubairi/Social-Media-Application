@@ -57,7 +57,8 @@
 }
 
 .postBottom{
-    display: flex
+    display: flex;
+    align-items: center;
 }
 
 .postBottomLeft{
