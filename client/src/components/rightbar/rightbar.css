@@ -1,4 +1,147 @@
-.rightbar{
+.rightbar {
     flex: 4;
     height: calc(100vh-60px);
+}
+
+.rightbarWrapper {
+    padding: 20px;
+}
+
+.birthdayContainer {
+    display: flex;
+}
+
+.birthdayIcon {
+    height: 40px;
+    width: 40px;
+}
+
+.birthdayText {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.rightbarAd {
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    object-fit: fill;
+
+}
+
+.rightbarFriendsList {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.rightbarFriend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rightbarProfileImageContainer {
+    margin-right: 10px;
+    position: relative;
+}
+
+.rightbarProfileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.rightbarOnline {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: lime;
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    border: 2px solid white;
+}
+
+.rightbarUsername {
+    font-weight: 500;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.rightbarTitle {
+    margin-bottom: 20px;
+    font-size: 130%;
+    font-weight: 800;
+}
+
+
+.rightbarTitile {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+
+.rightbarFollowingImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 300ms;
+}
+
+
+.rightbarInfo {
+    margin: 30px 0px;
+}
+
+.rightbarFollowings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+}
+
+.rightbarFollowing {
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.rightbarInfoKey {
+    font-weight: 300;
+    font-size: 1.7em;
+}
+
+.rightbarInfoValue {
+    font-weight: 500;
+    font-size: 1.7em;
+    margin-left: 0.5em;
+}
+
+.wrapperDiv {
+    margin-left: 1.5em;
+}
+
+.rightbarFollowingName {
+    font-weight: 300;
+    transition: 300ms;
+}
+
+.rightbarFollowing:hover {
+    text-decoration: underline;
+    transition: 300ms;
+    cursor: pointer;
+
+}
+
+.rightbarFollowingImg:hover {
+    transition: 300ms;
+    box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.13);
+    -webkit-box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.13);
 }

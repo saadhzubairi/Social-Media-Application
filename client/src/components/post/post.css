@@ -57,12 +57,18 @@
 }
 
 .postBottom{
+    margin-top: 1em;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .postBottomLeft{
     padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5em;
     
 }
 
@@ -71,6 +77,11 @@
     cursor: pointer;
 }
 
+.postLikeCounter{
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 0em 0.1em;
+}
 
 
 

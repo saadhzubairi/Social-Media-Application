@@ -1,9 +1,8 @@
 .sidebar {
     flex: 3;
-    height: calc(100vh-60px);
-    overflow-y: scroll;
-    position: inherit;
     top: 50px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
