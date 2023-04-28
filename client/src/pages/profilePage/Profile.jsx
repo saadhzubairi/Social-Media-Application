@@ -5,6 +5,7 @@ import Rightbar from '../../components/rightbar/Rightbar'
 import "./profile.css"
 
 function ProfilePage(props) {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
     return (
         <>
             <TopBar />
@@ -13,8 +14,8 @@ function ProfilePage(props) {
                 <div className="profileRight">
                     <div className="profileRightTop">
                         <div className="profileCover">
-                            <img src="assets/post/3.jpeg" alt="" className="coverPicture" />
-                            <img src="assets/person/2.jpeg" alt="" className="profilePicture" />
+                            <img src={`${PF}post/3.jpeg`} alt="" className="coverPicture" />
+                            <img src={`${PF}person/2.jpeg`} alt="" className="profilePicture" />
                         </div>
                         <div className="profileInfo">
                             <h4 className="profileInfoName">Willhem Dawes</h4>
@@ -22,8 +23,8 @@ function ProfilePage(props) {
                         </div>
                     </div>
                     <div className="profileRightBottom">
-                        <Feed />
-                        <Rightbar profile/>
+                        <Feed username="john"/>
+                        <Rightbar profile />
                     </div>
                 </div>
             </div>

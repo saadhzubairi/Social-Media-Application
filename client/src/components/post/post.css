@@ -64,7 +64,7 @@
 }
 
 .postBottomLeft{
-    padding-left: 20px;
+    padding-left: 0.1em;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -73,13 +73,13 @@
 }
 
 .postBottomLeftIcon{
-    width: 30%;
+    max-width: 15%;
     cursor: pointer;
 }
 
 .postLikeCounter{
-    font-weight: 700;
-    font-size: 1.5em;
+    font-weight: 500;
+    font-size: 1em;
     padding: 0em 0.1em;
 }
 
