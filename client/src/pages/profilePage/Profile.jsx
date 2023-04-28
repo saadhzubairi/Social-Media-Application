@@ -23,7 +23,7 @@ function ProfilePage(props) {
                         </div>
                     </div>
                     <div className="profileRightBottom">
-                        <Feed username="john"/>
+                        <Feed username={"GhaznafarShah"}/>
                         <Rightbar profile />
                     </div>
                 </div>
