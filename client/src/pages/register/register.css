@@ -1,3 +1,7 @@
+*{
+    transition: 300ms;
+}
+
 .register {
     width: 100vw;
     height: 100vh;
@@ -21,6 +25,14 @@
     justify-content: center;
 }
 
+.registerLeft-hide{
+    display: flex;
+    flex: 0;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0 !important;
+}
+
 .registerLogo {
     font-size: 3em;
     font-weight: 900;
@@ -28,7 +40,7 @@
 
 .registerDesc {
     font-size: 1.5em;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .registerBox {
@@ -38,11 +50,10 @@
     gap: 1em;
     background-color: rgb(241, 241, 241);
     align-items: center;
-    padding: 8em;
+    padding: 8em 3em;
     box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
     -webkit-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
     -moz-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
-
 }
 
 .registerTextField {
@@ -54,7 +65,8 @@
     box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
-    min-width: 400px;
+    display: flex;
+    width: 100%;
 }
 
 .registerButton,
@@ -122,4 +134,14 @@
 
 .forgotPassword:hover {
     text-decoration: underline;
+}
+
+.nameBox {
+    display: flex;
+    gap: 1em;
+    width: 106%;
+}
+
+select {
+    width: 107% !important;
 }

@@ -1,4 +1,16 @@
 .feed {
     flex: 5;
-    height: calc(100vh-60px);
+    overflow-y: visible;
+    position: relative;
+    overflow-y: scroll;
+    height: 100%;
+    padding: 1em;
+}
+
+.feedWrapper{
+    min-height: fit-content;
+}
+
+.sizerLol{
+    height: 100px;
 }

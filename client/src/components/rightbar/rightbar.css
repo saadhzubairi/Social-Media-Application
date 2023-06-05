@@ -1,6 +1,10 @@
 .rightbar {
     flex: 4;
-    height: calc(100vh-60px);
+    height: fit-content;
+    overflow-y: visible;
+    position: relative;
+    overflow-y: scroll;
+    padding: 1em;
 }
 
 .rightbarWrapper {
@@ -84,13 +88,7 @@
     margin-bottom: 1em;
 }
 
-.rightbarFollowingImg {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: 300ms;
-}
+
 
 
 .rightbarInfo {
@@ -139,9 +137,22 @@
 
 }
 
-.rightbarFollowingImg:hover {
+.rightbarFollowingImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
     transition: 300ms;
-    box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.13);
-    -webkit-box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.13);
+    margin: 2.5px;
+}
+
+.rightbarFollowingImg:hover {
+    width: 105px;
+    height: 105px;
+    margin: 0px;
+    border-radius: 20%;
+    transition: 100ms;
+    box-shadow: -1px 6px 10px 4px rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: -1px 6px 10px 4px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: -1px 6px 10px 4px rgba(0, 0, 0, 0.26);
 }

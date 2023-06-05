@@ -1,7 +1,6 @@
 import Post from "../post/Post"
 import Share from "../share/Share"
 import "./feed.css"
-import "../../dummydata"
 import { useEffect, useState } from "react"
 import axios from "axios"
 /* import { Posts } from "../../dummydata" */
@@ -13,7 +12,7 @@ function Feed({ username }) {
             username
                 ?
                 await axios.get("/posts/timeline/of/" + username)
-                    .then(response => { setPosts(response.data); console.log("hello there") }).catch(err => console.log(err))
+                    .then(response => { setPosts(response.data); }).catch(err => console.log(err))
                 :
                 await axios.get("/posts/timeline/63f752b687afb279e8762364")
                     .then(response => { setPosts(response.data) }).catch(err => console.log(err))
@@ -28,7 +27,7 @@ function Feed({ username }) {
                 {posts.map((p) => (
                     <Post key={p._id} post={p} />
                 ))}
-
+                <div className="sizerLol"></div>
             </div>
         </div>
     )

@@ -1,0 +1,71 @@
+* {
+    transition: 300ms;
+}
+
+.choicesContainer {
+    background-color: rgb(236, 236, 236);
+    padding: 1em;
+    border-radius: 1em;
+    display: flex;
+    box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.19);
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.choicesInterests {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.interestChip {
+    background-color: rgb(193, 193, 193);
+    padding: 0.25em 0.75em;
+    border-radius: 1em;
+}
+
+.interestChip:hover {
+    background-color: rgb(216, 216, 216);
+    cursor: pointer;
+}
+
+.interestChip:active {
+    background-color: purple;
+    color: white;
+}
+
+.interestChip-yellow:active {
+    color: rgb(238, 186, 0);
+}
+
+.interestChip-yellow {
+    background-color: rgb(238, 186, 0);
+    padding: 0.25em 0.75em;
+    border-radius: 1em;
+}
+
+.interestsHeading {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.interestChip-yellow:hover {
+    background-color: rgb(251, 212, 70);
+    cursor: pointer;
+}
+
+.registerBox-step3 {
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: rgb(241, 241, 241);
+    align-items: center;
+    padding: 3em;
+    box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
+}

@@ -1,6 +1,6 @@
 import "./rightbar.css"
 
-function Rightbar({ profile }) {
+function Rightbar({ profile,user }) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
     const HomeRightbar = () => {
         return (
@@ -29,7 +29,7 @@ function Rightbar({ profile }) {
         return (
             <>
                 <div className="wrapperDiv">
-                    <h4 className="rightbarTitile">User Information</h4>
+                    <h4 className="rightbarTitile">{user.username}'s' Information</h4>
                     <div className="rightbarInfo">
                         <div className="rightbarInfoItem">
                             < span className="rightbarInfoKey">City:</span>

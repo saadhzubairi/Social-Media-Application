@@ -1,20 +1,21 @@
 .sidebar {
+    position: relative;
     flex: 3;
-    top: 50px;
-    scroll-behavior: smooth;
+    flex-shrink: 0;
     overflow-y: scroll;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
-    background-color: transparent;
+    background-color: gray;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: gainsboro;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -22,22 +23,35 @@
 }
 
 .sidebarWrapper {
-    padding: 10px;
-    margin-left: 20px;
-    margin-top: 20px;
+    padding: 2em;
+    margin-bottom: 100px;
 }
 
 .sidebarList {
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-bottom: 1em;
 }
 
 .sidebarListItem {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     cursor: pointer;
+    padding: 0.75em 1em;
+    min-width: 10em;
+    max-width: 10em;
+    transition: 300ms;
+}
+
+.sidebarListItem:hover {
+    cursor: pointer;
+    border-radius: 1em;
+    background-color: rgb(249, 240, 255);
+    box-shadow: -1px 4px 9px -2px rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: -1px 4px 9px -2px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: -1px 4px 9px -2px rgba(0, 0, 0, 0.26);
+    transition: 300ms;
 }
 
 .sidebarIcon {
@@ -45,7 +59,8 @@
 }
 
 .sidebarButton {
-    width: 150px;
+    transition: 300ms;
+    width: 14em;
     border: none;
     cursor: pointer;
     padding: 10px;
@@ -53,6 +68,8 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-right: 3.5em;
     transition: 0.55s;
 }
 

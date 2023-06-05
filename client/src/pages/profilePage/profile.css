@@ -1,12 +1,13 @@
 .profile {
     display: flex;
+    height: 100vh;
 }
 
 .profileRight {
-    flex: 9;
+    flex: 10;
+    height: 100vh;
+    position: relative;
 }
-
-.profile {}
 
 .profileRightBottom {
     display: flex;
@@ -21,6 +22,17 @@
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: 100ms;
+}
+
+.coverPicture:hover {
+    height: 310px;
+    transition: 100ms;
+    cursor: pointer;
+    border-bottom-left-radius: 3em;
+    box-shadow: -1px 16px 16px -10px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: -1px 16px 16px -10px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: -1px 16px 16px -10px rgba(0, 0, 0, 0.7);
 }
 
 .profilePicture {
@@ -37,9 +49,20 @@
     box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 1px 11px 41px 11px rgba(0, 0, 0, 0.3);
+    transition: 100ms;
 }
 
-.profileInfo{
+.profilePicture:hover {
+    transition: 100ms;
+    width: 190px;
+    height: 190px;
+    top: 95px;
+    border-radius: 20%;
+    border: solid white 0.5em;
+    cursor: pointer;
+}
+
+.profileInfo {
     margin-left: 3em;
     margin-bottom: 1em;
     display: flex;
@@ -48,12 +71,12 @@
     justify-content: center;
 }
 
-.profileInfoName{
+.profileInfoName {
     font-size: 48px;
     font-weight: 900;
 }
 
-.profileInfoDesc{
+.profileInfoDesc {
     font-weight: 100;
     font-size: 1.5em;
 }

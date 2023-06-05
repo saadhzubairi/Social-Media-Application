@@ -23,7 +23,7 @@ function Post({ post }) {
 
     useEffect(() => {
         const fetchUser = () => {
-            axios.get(`/users/${post.userId}`).then(res => setUser(res.data)).catch(error => console.log(error))
+            axios.get(`/users?userId=${post.userId}`).then(res => setUser(res.data)).catch(error => console.log(error))
         }
         fetchUser();
     }, [post.userId])

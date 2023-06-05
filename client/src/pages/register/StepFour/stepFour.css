@@ -1,0 +1,87 @@
+.registerBox-four {
+    border-radius: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: rgb(241, 241, 241);
+    align-items: center;
+    padding: 3em;
+    box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
+}
+
+.interestsSubHeading{
+    text-align: center;
+}
+
+.table,
+th,
+td {
+    border: 2px dashed rgb(211, 211, 211);
+}
+
+table {
+    width: auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th,
+td {
+    padding: 0.5em;
+    height: 2em;
+    text-align: center;
+    width: 14.3%;
+}
+
+tr:nth-child(even) {
+    background-color: #e5e5e5;
+}
+
+th {
+    background-color: indigo;
+    color: white;
+}
+
+.checkboxSlot {
+    height: 2em;
+    width: 2em;
+}
+
+.checkboxSlot {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkboxSlot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.checkboxSlot:checked::before {
+    background-color: rgb(149, 96, 188);
+}
+
+.checkboxSlot:checked:after {
+    content: 'BUSY';
+    /* Checkmark symbol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
