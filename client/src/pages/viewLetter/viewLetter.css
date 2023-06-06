@@ -1,0 +1,64 @@
+.VLBody {
+    height: 75vh;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0em;
+}
+
+.nameAndBack{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.back{
+    cursor: pointer;
+}
+
+.LetterBody {
+    border: 1px solid #e7e7e7;
+    background-color: white;
+    width: 50em;
+    height: fit-content;
+    padding: 3em 3em;
+    line-height: 1.5em;
+}
+
+.Lstamp {
+    position: relative;
+    height: 8em;
+    width: 8em;
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+.letterBodyHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.From{
+    font-weight: bold;
+    font-size: 1.5em;
+    color: gray;
+}
+
+.FromT{
+    font-weight: 500;
+    font-size: 1.2em;
+    color: gray;
+}
+
+.letterContent{
+    font-size: 1.2em;
+    line-height: 1.7em;
+}
+
+.mImageF {
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    object-fit: cover;
+}

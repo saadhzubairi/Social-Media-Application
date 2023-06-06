@@ -1,66 +1,25 @@
-import { useEffect, useState } from "react";
 import "./post.css";
-import { MoreVert } from "@mui/icons-material"
-import process from "process"
-import axios from "axios";
-import { format } from "timeago.js"
-import { Link } from "react-router-dom"
 
 function Post({ post }) {
-    const [like, setLike] = useState(post?.like)
-    const [isLiked, setIsLiked] = useState(false)
-    const LikeHandler = () => {
-        setIsLiked(!isLiked)
-        setLike(isLiked ? like - 1 : like + 1)
-    }
-    const [user, setUser] = useState({});
-
-    useEffect(() => {
-        const getLikes = () => {
-
-        }
-    })
-
-    useEffect(() => {
-        const fetchUser = () => {
-            axios.get(`/users?userId=${post.userId}`).then(res => setUser(res.data)).catch(error => console.log(error))
-        }
-        fetchUser();
-    }, [post.userId])
-
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER
-
     return (
         <div className="post">
             <div className="postWrapper">
-                <div className="postTop">
-                    <div className="postTopLeft">
-                        <Link to={`profile/${user.username}`} style={{textDecoration:"none"}}>
-                            <img
-                                src={user.profilePic || PF + "person/0.jpg"}
-                                alt=""
-                                className="postProfileImage" />
-                        </Link>
-                            <span className="postUsername">{user.username}</span>
-                        <span className="postTime">{format(post.createdAt)}</span>
+                <div className="friendpostleftSide">
+                    <div className="postTop">
+                        <img src="https://slowly.app/wp-content/uploads/2020/04/Ahmetfurkan-1.jpg"
+                            alt="" className="postAvatar" />
+                        <div className="postNameAndTime">
+                            <div className="PostName">Saad Zubairi</div>
+                            <div className="PostTime">Posted five minutes ago</div>
+                        </div>
                     </div>
-                    <div className="postTopRight">
-                        <MoreVert />
+                    <div className="postBody">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum excepturi, iure sunt laborum adipisci delectus hic ipsa a fugit omnis, dolorum expedita natus atque recusandae aliquid dolore illum aut tenetur.
                     </div>
                 </div>
-                <div className="postCentre">
-                    <span className="postText">{post?.desc}</span>
-                    {post?.img === "img.png" ? null : <img src={`${post?.img}`} alt="" className="postImage" />}
-                </div>
-                <div className="postBottom">
-                    <div className="postBottomLeft">
-                        <img src={`${PF}like.png`} alt="" className="postBottomLeftIcon" onClick={LikeHandler} />
-                        <img src={`${PF}heart.png`} alt="" className="postBottomLeftIcon" onClick={LikeHandler} />
-                        <span className="postLikeCounter">{post.likes.length} {post.likes.length === 1 ? "person" : "people"} liked it</span>
-                    </div>
-                    <div className="postBottomRight">
-                        <span className="postCommentcount">0 comments</span>
-                    </div>
+                <div className="postRightSide">
+                    <img src="https://cdn-images.threadless.com/threadless-media/artist_shops/shops/chee/products/1285369/original-1580594629-370aed99af17f73efe42799563f92361.png?v=3&d=eyJvbmx5X21ldGEiOiBmYWxzZSwgImZvcmNlIjogZmFsc2UsICJvcHMiOiBbWyJ0cmltIiwgW2ZhbHNlLCBmYWxzZV0sIHt9XSwgWyJyZXNpemUiLCBbXSwgeyJ3aWR0aCI6IDk5Ni4wLCAiYWxsb3dfdXAiOiBmYWxzZSwgImhlaWdodCI6IDk5Ni4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzEyMDAsIDEyMDBdLCB7ImJhY2tncm91bmQiOiAiMmM1YzljIn1dLCBbInJlc2l6ZSIsIFs4MDBdLCB7fV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzgwMCwgODAwLCAiI2ZmZmZmZiJdLCB7fV0sIFsiZW5jb2RlIiwgWyJqcGciLCA4NV0sIHt9XV19"
+                        alt="" className="postImg" />
                 </div>
             </div>
         </div>

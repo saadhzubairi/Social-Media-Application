@@ -1,0 +1,190 @@
+.sugFriend {
+    display: flex;
+    background-color: white;
+    border: 1px solid #e7e7e7;
+
+}
+
+.sugFriend:hover {
+    display: flex;
+    background-color: rgb(238, 235, 240);
+    border: 1px solid #e7e7e7;
+    transition: 0ms;
+    cursor: pointer;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: 0ms !important;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.sugfriendpostleftSide {
+    padding: 1em;
+    width: max-content;
+    max-width: 25em !important;
+}
+
+.sugfriendWrapper {
+    display: flex;
+    align-items: center;
+    padding-right: 1.5em;
+}
+
+.sugpostRightSide {
+    border-left: 1px solid #cacaca;
+    min-width: 15em;
+}
+
+.modal,
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.683);
+    transition: 300ms;
+}
+
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+
+    background: #F8F8F8;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+}
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0em 2em;
+}
+
+.mTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+}
+
+.mUsername {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.mImage {
+    height: 9em;
+    width: 9em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mBottomArea {
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.mBottom {
+    padding: 2em;
+    background-color: white;
+    border: 1px solid #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.mList {
+    display: flex;
+    gap: 1em !important;
+    padding-left: 0em;
+}
+
+.mHeading {
+    font-weight: 700;
+    color: gray;
+}
+
+.interestsSection {
+    padding-top: 1em;
+}
+
+.interestsContainer {}
+
+.interestsChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em;
+    padding: 1em 0em;
+}
+
+.interestC {
+    background-color: #FCAB01;
+    border: #FCAB01 solid 1px;
+    padding: 0.25em 0.75em;
+    border-radius: 5em;
+}
+
+.interestU {
+    border: #FCAB01 solid 1px;
+    padding: 0.25em 0.75em;
+    border-radius: 5em;
+}
+
+.mBottomBottom {
+    background: #F8F8F8;
+    padding: 1em;
+}
+
+.writeLetter {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border: 2px rgb(196, 196, 196) dashed;
+    color: #4f4f4f;
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 0.25em 0.75em;
+    border-radius: 1em;
+}
+
+.writeLetter:hover {
+    background-color: rgb(116, 25, 181);
+    color: white;
+    cursor: pointer;
+}

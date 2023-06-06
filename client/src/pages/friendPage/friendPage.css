@@ -1,0 +1,71 @@
+.friendPage {
+    padding: 1em;
+}
+
+.FPtop {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2em;
+    align-items: center;
+    border: 1px solid #e7e7e7;
+    padding: 1em;
+}
+
+.FPnameInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.FPname {
+    font-weight: bold;
+    font-size: 2.5em;
+    color: rgb(57, 14, 87);
+}
+
+.FPInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.floating-action-button {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    height: 56px;
+    border-radius: 3em;
+    background-color: indigo;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    padding: 0.25em 0.75em;
+    gap: 0.5em;
+}
+
+.floating-action-button:hover{
+    background-color: rgb(126, 49, 181);   
+}
+
+.FPBody{
+    padding: 1em;
+    display: flex;
+    height: 67vh;
+    overflow-y: scroll;
+}
+
+.lettersGrid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding-bottom: 1em;
+}
+
+.FPsizing{
+    height: 1em;
+    width: 20em;
+}

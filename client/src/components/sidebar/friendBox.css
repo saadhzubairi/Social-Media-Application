@@ -1,0 +1,70 @@
+.friendBoxContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #e7e7e7;
+    padding: 0.65em 0.5em;
+    user-select: none;
+    transition: 0ms !important;
+    background-color: #fff;
+}
+
+.friendBoxContainer:hover {
+    background-color: #F8F8F8;
+    cursor: pointer;
+    transition: 0ms !important;
+}
+
+
+.avatarAndText {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.avatar {
+    height: 2.8em;
+    width: 2.8em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.textName {
+    font-weight: bold;
+}
+
+.textSubText {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #b5b5b5;
+}
+
+.lastText {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #b5b5b5;
+}
+
+.lastTextAndStatus {
+    display: flex;
+    gap: 1em;
+}
+
+.status {
+    height: 0.7em;
+    width: 0.7em;
+    background-color: rgb(81, 204, 81);
+    border-radius: 50%;
+}
+
+.status-online {
+    height: 1em;
+    width: 1em;
+    background-color: green;
+}
+
+.status-inclass {
+    height: 1em;
+    width: 1em;
+    background-color: green;
+}

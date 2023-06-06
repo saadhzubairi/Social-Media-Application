@@ -62,7 +62,6 @@ function StepFour({ setStepTrack }) {
 
     return (
         <div>
-
             <div className="registerBox-four">
                 <div className="interestsHeading">Your Univeristy Schedule to plan meetups</div>
                 <div className="interestsSubHeading">Tell us your university schedule so we can plan your meetups with new friends.

@@ -1,88 +1,53 @@
 .post {
-    margin-top: 20px;
-    margin-bottom: 20px; 
-    border-radius: 30px;
-    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    padding: 25px;
-
+    display: flex;
+    background-color: white;
+    border: 1px solid #e7e7e7;
+    height: 10em;
 }
 
-.postTop{
+.postWrapper {
+    display: flex;
+}
+
+.friendpostleftSide {
+    padding: 1em;
+    width: max-content;
+    max-width: 40em;
+}
+
+.postTop {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.postTopLeft{
-    display: flex;
-    align-items: center;
-}
-
-.postProfileImage{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.postUsername{
-    font-size: 17px;
-    font-weight: 600;
-    margin: 0 10px;
-}
-
-.postTime{
-    font-size: 12px;
-    color: rgb(144, 144, 144);
-}
-
-.postCentre{
-    display: flex;
-    flex-direction: column;
-}
-
-.postImage{
-    max-width: 700px;
-    max-height: 700px;
-    border-radius: 40px;
-    padding: 10px 0;
-    object-fit: contain;
-}
-
-.postText{
-    font-size: 20px;
-    padding-bottom: 10px;
-    padding-top: 20px;
-}
-
-.postBottom{
-    margin-top: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.postBottomLeft{
-    padding-left: 0.1em;
-    display: flex;
-    align-items: center;
-    justify-content: start;
     gap: 0.5em;
-    
 }
 
-.postBottomLeftIcon{
-    max-width: 15%;
-    cursor: pointer;
+.postAvatar {
+    height: 3.5em;
+    width: 3.5em;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.postLikeCounter{
-    font-weight: 500;
-    font-size: 1em;
-    padding: 0em 0.1em;
+.postImg {
+    height: 10em;
+    width: 10em;
 }
 
+.PostName {
+    font-weight: bold;
+    transition: 0ms !important;
+}
 
+.PostTime {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.8em;
+    color: gray;
+    transition: 0ms !important;
+}
 
-
+.postBody {
+    padding: 1em 0em;
+    word-wrap: normal;
+    transition: 0ms !important;
+}

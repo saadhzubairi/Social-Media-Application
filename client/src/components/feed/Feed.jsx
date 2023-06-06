@@ -3,6 +3,7 @@ import Share from "../share/Share"
 import "./feed.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import SugFriend from "../sugFriend/SugFriend"
 /* import { Posts } from "../../dummydata" */
 function Feed({ username }) {
     const [posts, setPosts] = useState([])
@@ -23,11 +24,26 @@ function Feed({ username }) {
     return (
         <div className="feed">
             <div className="feedWrapper">
+                <div className="feedWelcom">Hello, Saad 👋🏻</div>
                 <Share />
-                {posts.map((p) => (
-                    <Post key={p._id} post={p} />
-                ))}
-                <div className="sizerLol"></div>
+                <div className="feedupdates">Updates 🚀</div>
+                <div className="postScaffoldViewPort">
+                    <div className="postsScaffold">
+
+                        {posts.map((p) => (
+                            <Post key={p._id} post={p} />
+                        ))}
+                        {posts.map((p) => (
+                            <Post key={p._id} post={p} />
+                        ))}
+                    </div>
+                </div>
+                <div className="feedupdates">Suggested Friends 🍟</div>
+                <div className="postScaffoldViewPort">
+                    <div className="postsScaffold">
+                        <SugFriend />
+                    </div>
+                </div>
             </div>
         </div>
     )

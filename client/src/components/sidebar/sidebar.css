@@ -1,9 +1,35 @@
 .sidebar {
     position: relative;
-    flex: 3;
+    flex: 1;
     flex-shrink: 0;
-    overflow-y: scroll;
-    height: 100%;
+    padding: 1em;
+}
+
+.friendsContainer {
+    height: 77.5vh;
+    border: 1px solid #e7e7e7;
+}
+
+.friendsContainerHeader {
+    padding: 1em;
+    height: 4vh;
+    border: 1px solid #e7e7e7;
+    background-color: #F8F8F8;
+}
+
+.friendsListHeading{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5em;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.friendsListSubHeading{
+    font-weight: 600;
+    font-size: 0.9em;
+    color: rgb(159, 159, 159);
 }
 
 ::-webkit-scrollbar {
@@ -22,93 +48,7 @@
     background-color: rgb(179, 179, 179);
 }
 
-.sidebarWrapper {
-    padding: 2em;
-    margin-bottom: 100px;
-}
-
-.sidebarList {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    margin-bottom: 1em;
-}
-
-.sidebarListItem {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 0.75em 1em;
-    min-width: 10em;
-    max-width: 10em;
-    transition: 300ms;
-}
-
-.sidebarListItem:hover {
-    cursor: pointer;
-    border-radius: 1em;
-    background-color: rgb(249, 240, 255);
-    box-shadow: -1px 4px 9px -2px rgba(0, 0, 0, 0.26);
-    -webkit-box-shadow: -1px 4px 9px -2px rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: -1px 4px 9px -2px rgba(0, 0, 0, 0.26);
-    transition: 300ms;
-}
-
-.sidebarIcon {
-    margin-right: 10px;
-}
-
-.sidebarButton {
-    transition: 300ms;
-    width: 14em;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-weight: 700;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 3.5em;
-    transition: 0.55s;
-}
-
-.sidebarButton:hover {
-    border-radius: 100px;
-    background-color: indigo;
-    color: white;
-}
-
-.sidebarButtonIcon {
-    size: 10px;
-    padding-right: 10px;
-    margin-left: 10px;
-}
-
-.sidebarHr {
-    margin: 20px 0px;
-}
-
-.sidebarFriendList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.sidebarFriend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.sidebarFriendImage {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.sidebarFriendName {
-    font-weight: bold;
-    margin-left: 10px;
+.friendsListViewPort{
+    height: 70vh;
+    overflow-y:scroll ;
 }

@@ -71,6 +71,7 @@
     transition: 300ms;
     max-width: 400px;
     min-width: 400px;
+    height: 3em;
 }
 
 .loginButton:hover,
@@ -106,6 +107,11 @@
 
 .registerButton:active {
     background-color: rgb(248, 237, 255);
+}
+
+.registerButton:disabled {
+    background-color: rgb(205, 198, 210);
+    color: gray;
 }
 
 .loginBox {
