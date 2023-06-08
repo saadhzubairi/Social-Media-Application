@@ -18,6 +18,19 @@ const AuthReducer = (state, action) => {
                 isFetching: false,
                 error: action.payload,
             }
+        case "PAL_ADD":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    pals: [...state.user.pals, action.payload],
+                },
+            };
+        case "UPDATE_INFO":
+            return {
+                ...state,
+                user: action.payload,
+            };
         default:
             return state;
     }

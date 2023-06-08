@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Butterfly = require("../models/Butterfly");
 const Letter = require("../models/Letter");
+const verifyToken = require("../utils/verifyToken");
 
 router.get('/', async (req, res) => {
     try {
@@ -54,11 +55,17 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyToken, async (req, res) => {
     try {
         const { id } = req.params;
-        await Letter.findByIdAndDelete(id);
-        res.status(200).json({ message: "Letter deleted successfully" });
+        const letter = await Letter.findById(id)
+        if (req.user.id === letter.senderId) {
+            await Letter.findByIdAndDelete(id);
+            res.status(200).json({ message: "Letter deleted successfully" });
+        }
+        else {
+            res.status(403).json({ message: "You can only delete your own letter" });
+        }
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Internal server error" });

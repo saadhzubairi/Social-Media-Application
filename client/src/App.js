@@ -4,6 +4,7 @@ import TopBar from "./components/topbar/Topbar";
 import FriendPage from "./pages/friendPage/FriendPage";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register"
 import { BrowserRouter, Routes, Route, Outlet, Navigate } from "react-router-dom"
 import ViewLetter from "./pages/viewLetter/ViewLetter";
 import WriteLetter from "./pages/writeLetter/WriteLetter"
@@ -34,8 +35,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={user ? <Navigate to={"/App"} /> : <Login />} />
+          <Route path="register" element={user ? <Navigate to={"/App"} /> : <Register />} />
           <Route path="/App" element={<Layout />}>
-            <Route path="" element={<Home />} />
+            <Route path="" element={user ? <Home /> : <Navigate to={"/"} />  } />
             <Route path="friend/:id" element={<FriendPage />} />
             <Route path="friend/:id/letter/" element={<WriteLetter />} />
             <Route path="friend/:id/letter/:lid" element={<ViewLetter />} />
@@ -43,7 +45,7 @@ function App() {
           </Route>
           {/* <Route exact path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          
           <Route path="Profile/:username" element={<ProfilePage />} /> */}
         </Routes>
       </main>

@@ -1,0 +1,72 @@
+.editProf {
+    padding: 1em;
+    height: 100%;
+}
+
+.bottomPart {
+    display: flex;
+    height: 100%;
+}
+
+.sideNavigator {
+    flex: 1;
+    border-right: dashed 5px rgb(203, 203, 203);
+    height: 100%;
+}
+
+.mainWindow {
+    flex: 4;
+
+    height: 100%;
+}
+
+.EPHeader {
+    font-weight: 700;
+    font-size: 2em;
+    color: gray;
+}
+
+.EPList {
+    list-style-type: none;
+    padding: 0em;
+    padding-top: 2em;
+    padding-left: 1em;
+}
+
+.EPLitem {
+    padding: 0.25em 0em;
+    font-weight: 600;
+    color: rgb(92, 92, 92);
+}
+
+.EPLitem:hover {
+    cursor: pointer;
+    color: indigo;
+}
+
+.subWindow {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    padding-left: 5em;
+}
+
+.subWindowBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 25em;
+}
+
+.subWindowBox-sched{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 90%;
+}
+
+#basicInfoSave {
+    margin-top: 0em !important;
+}

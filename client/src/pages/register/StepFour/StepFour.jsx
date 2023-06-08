@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './stepFour.css'
-function StepFour({ setStepTrack }) {
+function StepFour({ setStepTrack, setDaySchedules }) {
     const [selectedSlots, setSelectedSlots] = useState([]);
 
     const handleSlotChange = (day, slot) => {
@@ -54,9 +54,11 @@ function StepFour({ setStepTrack }) {
 
     const daySchedules = daysOfWeek.map((day) => createDaySchedule(day));
 
-    const onSubmit = () => {
+    const onSubmit = (event) => {
+        event.preventDefault()
         console.log(daySchedules);
-        console.log(selectedSlots);
+        setDaySchedules(daySchedules)
+        setStepTrack(5)
     }
 
 

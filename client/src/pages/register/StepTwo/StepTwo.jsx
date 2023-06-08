@@ -17,7 +17,11 @@ function StepTwo({ setStepTrack }) {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log(formData);
+        localStorage.setItem("gender", formData.gender)
+        localStorage.setItem("city", formData.city)
+        localStorage.setItem("DOB", formData.DOB)
+        localStorage.setItem("MBTI", formData.MBTI)
+        localStorage.setItem("bio", formData.bio)
         setStepTrack(3)
     }
     return (

@@ -5,7 +5,7 @@ const Butterfly = require('../models/Butterfly');
 
 // Create a Butterfly
 router.post('/', async (req, res) => {
-    const { username, email, password, name, gender, DOB, city, interests, schedule } = req.body;
+    const { username, email, password, name, gender, DOB, city, interests, schedule, MBTI, bio, pfp } = req.body;
 
     try {
         // Hash password with bcrypt
@@ -21,7 +21,10 @@ router.post('/', async (req, res) => {
             DOB,
             city,
             interests,
-            schedule
+            schedule,
+            MBTI,
+            bio,
+            pfp
         });
 
         // Save the new Butterfly document to the database
@@ -35,7 +38,7 @@ router.post('/', async (req, res) => {
 // Edit a Butterfly (without editing the password)
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { username, email, name, gender, DOB, city, interests, schedule } = req.body;
+    const { username, email, name, gender, DOB, city, interests, schedule, MBTI, bio, pfp } = req.body;
     try {
         const butterfly = await Butterfly.findByIdAndUpdate(id, {
             username,
@@ -45,7 +48,10 @@ router.put('/:id', async (req, res) => {
             DOB,
             city,
             interests,
-            schedule
+            schedule,
+            MBTI,
+            bio,
+            pfp
         }, { new: true });
 
         if (!butterfly) {
@@ -106,7 +112,7 @@ router.get('/', async (req, res) => {
 
         if (id) {
             const butterfly = await Butterfly.findById(id);
-            res.status(200).json(butterfly);
+            return res.status(200).json(butterfly);
         }
 
         if (username) {
@@ -134,6 +140,33 @@ router.get('/', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+//add a pal
+router.put('/:id/pals', async (req, res) => {
+    const { id } = req.params;
+    const { pal } = req.body;
+    try {
+        const butterfly = await Butterfly.findByIdAndUpdate(
+            id,
+            { $push: { pals: pal } },
+            { new: true }
+        );
+
+        const myPal = await Butterfly.findByIdAndUpdate(
+            pal,
+            { $push: { pals: id } },
+            { new: true }
+        );
+
+        if (!butterfly) {
+            return res.status(404).json({ message: 'Butterfly not found' });
+        }
+        return res.status(200).json({ butterfly: butterfly, mypal: myPal });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: 'Internal server error' });
     }
 });
 

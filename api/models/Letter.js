@@ -20,7 +20,7 @@ const LetterSchema = new mongoose.Schema(
         },
         status: {
             type: Number,
-            enum: [0, 1] //Sent and Read
+            enum: [0, 1, 2] //Sent, Available, Read
         }
     },
     { timestamps: true }

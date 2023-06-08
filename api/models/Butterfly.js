@@ -110,7 +110,11 @@ const Butterfly = new mongoose.Schema({
     pals: {
         type: [String],
         default: []
-    }
+    },
+    pfp: {
+        type: String,
+        default: "https://api.dicebear.com/6.x/avataaars/svg?seed=Chloe&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf"
+    },
 },
     { timestamps: true }
 )

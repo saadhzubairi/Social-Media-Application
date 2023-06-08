@@ -25,3 +25,25 @@
     object-fit: cover;
     cursor: pointer;
 }
+
+.logout{
+    cursor: pointer;
+    
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout:hover{
+    cursor: pointer;
+    color: rgb(220, 33, 33);
+    background-color: rgb(228, 178, 178);
+}
+
+.imageAndLogout{
+    display: flex;
+    gap: 1em;
+}

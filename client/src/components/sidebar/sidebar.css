@@ -10,6 +10,18 @@
     border: 1px solid #e7e7e7;
 }
 
+.noFriends{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 66vh;
+    background-color: white;
+    color: gray;
+    font-weight: bold;
+    padding: 1em;
+}
+
 .friendsContainerHeader {
     padding: 1em;
     height: 4vh;

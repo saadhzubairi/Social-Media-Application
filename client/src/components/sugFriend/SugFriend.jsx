@@ -1,35 +1,76 @@
 import { Cake, FemaleOutlined, ListAltOutlined, MessageOutlined, PinDropOutlined, StarOutline } from '@mui/icons-material'
 import './sugFriend.css'
-import { Link } from "react-router-dom"
-import { useState } from 'react';
-function SugFriend(props) {
+import { useNavigate } from "react-router-dom"
+import { useContext, useState } from 'react';
+import { format } from "timeago.js"
+import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
+
+function SugFriend({ wSugg }) {
+    const { commonInts, suggestion } = wSugg
     const [modal, setModal] = useState(false);
-    const toggleModal = () => { setModal(!modal); console.log('asdklasjdkljasdlj'); }
+    const toggleModal = () => { setModal(!modal); }
+    const { user, dispatch } = useContext(AuthContext)
+    const navigate = useNavigate()
+    function formatDateWithAge(dateString) {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.toLocaleString("default", { month: "short" });
+        const age = new Date().getFullYear() - date.getFullYear();
+
+        let dayWithSuffix = day;
+        if (day >= 11 && day <= 13) {
+            dayWithSuffix += "th";
+        } else if (day % 10 === 1) {
+            dayWithSuffix += "st";
+        } else if (day % 10 === 2) {
+            dayWithSuffix += "nd";
+        } else if (day % 10 === 3) {
+            dayWithSuffix += "rd";
+        } else {
+            dayWithSuffix += "th";
+        }
+
+        return `${dayWithSuffix} ${month} (${age} y.o)`;
+    }
+
+    const handleWriteLetter = async () => {
+        if (user.pals.includes(suggestion._id)) {
+
+        } else {
+            await axios.put(`/butterfly/${user._id}/pals`, {
+                pal: suggestion._id,
+            });
+            dispatch({ type: "PAL_ADD", payload: suggestion._id });
+        }
+        navigate(`friend/${suggestion._id}/letter/`)
+        console.log(user);
+    }
+
     return (
         <>
             <div className='sugFriend' onClick={toggleModal}>
                 <div className="sugfriendWrapper">
                     <div className="sugfriendpostleftSide">
                         <div className="postTop">
-                            <img src="https://slowly.app/wp-content/uploads/2020/04/Ahmetfurkan-1.jpg"
+                            <img src={suggestion.pfp}
                                 alt="" className="postAvatar" />
                             <div className="postNameAndTime">
-                                <div className="PostName">Saad Zubairi</div>
-                                <div className="PostTime">Joined 11 days ago</div>
+                                <div className="PostName">{suggestion.username}</div>
+                                <div className="PostTime">Joined {format(suggestion.createdAt)}</div>
                             </div>
                         </div>
                         <div className="postBody">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum excepturi, iure sunt laborum adipisci delectus hic ipsa a fugit omnis, dolorum expedita natus atque recusandae aliquid dolore illum aut tenetur.
+                            {suggestion.bio}
                         </div>
                     </div>
                     <div className="sugpostRightSide">
                         <ul>
-                            <li><Cake style={{ color: "#FCAB01" }} /> 17th May (24)</li>
-                            <li><ListAltOutlined style={{ color: "#FCAB01" }} /> 3 Common Interests</li>
-                            <li><PinDropOutlined style={{ color: "#FCAB01" }} /> Karachi, PK</li>
-                            <li><StarOutline style={{ color: "#FCAB01" }} /> INTJ</li>
-                            <li><FemaleOutlined style={{ color: "#FCAB01" }} /> Female</li>
-
+                            <li><ListAltOutlined style={{ color: "#FCAB01" }} /> <b>{commonInts}</b> Common Interests</li>
+                            <li><Cake style={{ color: "#FCAB01" }} /> {formatDateWithAge(suggestion.DOB)} </li>
+                            <li><PinDropOutlined style={{ color: "#FCAB01" }} /> {suggestion.city}</li>
+                            <li><StarOutline style={{ color: "#FCAB01" }} /> {suggestion.MBTI}</li>
+                            <li><FemaleOutlined style={{ color: "#FCAB01" }} /> {suggestion.gender}</li>
                         </ul>
                     </div>
                 </div>
@@ -39,59 +80,45 @@ function SugFriend(props) {
                     <div className="overlay" onClick={toggleModal}>
                         <div className="modal-content">
                             <div className="mTop">
-                                <div className="mUsername">Snickers</div>
-                                <img src="https://cdn.getslowly.com/assets/images/avatar/other/user/52634/1.png"
+                                <div className="mUsername">{suggestion.username}</div>
+                                <img src={suggestion.pfp}
                                     alt="" className="mImage" />
                             </div>
                             <div className="mBottom">
                                 <div className="mBottomArea">
                                     <div className="aboutSection">
-                                        <div className="mHeading">About Snickers</div>
+                                        <div className="mHeading">About {suggestion.username}</div>
                                         <div className="bio">
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero laborum unde, ullam rem nemo libero molestiae itaque nulla voluptas hic odio quia maxime vel commodi illum illo, quas eligendi architecto consequatur? Nesciunt magnam magni incidunt ex odio. Eos, minus nam?
+                                            {suggestion.bio}
                                         </div>
                                         <ul className='mList'>
-                                            <li><Cake style={{ color: "#FCAB01" }} /> 17th May (24)</li>
-                                            <li><ListAltOutlined style={{ color: "#FCAB01" }} /> 3 Common Interests</li>
-                                            <li><PinDropOutlined style={{ color: "#FCAB01" }} /> Karachi, PK</li>
-                                            <li><StarOutline style={{ color: "#FCAB01" }} /> INTJ</li>
-                                            <li><FemaleOutlined style={{ color: "#FCAB01" }} /> Female</li>
+                                            <li><ListAltOutlined style={{ color: "#FCAB01" }} /> <b>{commonInts}</b> Common Interests</li>
+                                            <li><Cake style={{ color: "#FCAB01" }} /> {formatDateWithAge(suggestion.DOB)} </li>
+                                            <li><PinDropOutlined style={{ color: "#FCAB01" }} /> {suggestion.city}</li>
+                                            <li><StarOutline style={{ color: "#FCAB01" }} /> {suggestion.MBTI}</li>
+                                            <li><FemaleOutlined style={{ color: "#FCAB01" }} /> {suggestion.gender}</li>
                                         </ul>
                                     </div>
                                     <div className="interestsSection">
                                         <div className="mHeading">Interests</div>
                                         <div className="interestsContainer">
                                             <div className="interestsChips">
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestC">Cooking</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
-                                                <div className="interestU">Cleaning</div>
+                                                {suggestion.interests.map((i) => <div className={user.interests.includes(i) ? "interestC" : "interestU"} id={i}>{i}</div>)}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="mBottomBottom">
-                                <Link to={"friend/idhere/letter/"} style={{ textDecoration: "none" }}>
-                                    <button className="writeLetter"><MessageOutlined /> Write letter</button>
-                                </Link>
+                                {/* <Link to={`friend/${suggestion._id}/letter/`} style={{ textDecoration: "none" }}> */}
+                                <button className="writeLetter" onClick={handleWriteLetter}><MessageOutlined /> Write letter</button>
+                                {/* </Link> */}
                             </div>
                         </div>
                     </div>
-                </div>
-            )}
+                </div >
+            )
+            }
         </>
     )
 }

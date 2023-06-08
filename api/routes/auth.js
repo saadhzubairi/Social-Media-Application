@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Butterfly = require("../models/Butterfly")
 const bcrypt = require("bcrypt")
-
+const jwt = require("jsonwebtoken")
 //Register:
 
 router.post("/register", async (req, res) => {
@@ -28,11 +28,11 @@ router.post("/login", async (req, res) => {
     try {
         const user = await Butterfly.findOne({ email: req.body.email });
         !user && res.status(404).json("User not found.");
-
         const validPassword = await bcrypt.compare(req.body.password, user.password)
         !validPassword && res.status(400).json("Wrong Password");
 
-        res.status(200).json(user);
+        const accessToken = jwt.sign({ id: user._id }, "my secret key")
+        res.status(200).json({ user: user, token: accessToken });
     } catch (error) {
         console.log(error);
     }

@@ -2,7 +2,6 @@
     display: flex;
     background-color: white;
     border: 1px solid #e7e7e7;
-
 }
 
 .sugFriend:hover {
@@ -24,6 +23,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 0.25em;
+    padding: 1em;
 }
 
 .sugfriendpostleftSide {

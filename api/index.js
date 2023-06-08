@@ -5,12 +5,14 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
+const jwt = require("jsonwebtoken")
 
 const userRoute = require("./routes/users")
 const butterflyRoute = require("./routes/butterfly")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/posts")
 const letterRoute = require("./routes/letter")
+const upRoute = require("./routes/upload")
 
 dotenv.config();
 
@@ -36,6 +38,7 @@ app.use("/api/butterfly", butterflyRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/letters", letterRoute);
+app.use("/api/upload", upRoute);
 
 app.use(cors({
     origin: "http://localhost:3000",

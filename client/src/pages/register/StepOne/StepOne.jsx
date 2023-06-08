@@ -19,6 +19,11 @@ function StepOne({ setStepTrack }) {
     const onSubmit = (e) => {
         e.preventDefault()
         console.log(formData);
+        localStorage.setItem("fname", formData.fname)
+        localStorage.setItem("lname", formData.lname)
+        localStorage.setItem("email", formData.email)
+        localStorage.setItem("username", formData.username)
+        localStorage.setItem("password", formData.password)
         setStepTrack(2)
     }
     return (

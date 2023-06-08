@@ -9,7 +9,7 @@ export const loginCall = async (userC, dispatch) => {
 
         dispatch({
             type: "LOGIN_SUCCESS",
-            payload: res.data
+            payload: res.data.user
         })
     }
     catch (err) {

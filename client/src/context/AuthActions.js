@@ -11,3 +11,13 @@ export const LoginFaliure = (error) => ({
     type: "LOGIN_FAIL",
     payload: error
 })
+
+export const PalAdd = (userId) => ({
+    type: "PAL_ADD",
+    payload: userId,
+});
+
+export const UpdateInfo = (changes) => ({
+    type: "UPDATE_INFO",
+    payload: changes,
+});

@@ -3,13 +3,13 @@
 }
 
 .choicesContainer {
-    background-color: rgb(236, 236, 236);
+    background-color: #F8F8F8;
     padding: 1em;
     border-radius: 1em;
     display: flex;
-    box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.19);
+    box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
     height: 50vh;
     overflow-y: scroll;
 }
