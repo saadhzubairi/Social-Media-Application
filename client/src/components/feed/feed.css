@@ -1,10 +1,6 @@
 .feed {
-    flex: 4;
-    overflow-y: visible;
     position: relative;
-    overflow-y: scroll;
     height: 87vh;
-    padding: 1em 2em 1em 1em;
 }
 
 ::-webkit-scrollbar {
@@ -68,12 +64,24 @@
     margin: 1em 0em;
     display: flex;
     gap: 1em;
+    height: 83%;
+}
+
+.noSugsF {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-weight: 700;
+    color: gray;
 }
 
 .postScaffoldViewPort {
     width: 76vw;
     overflow-x: scroll;
     margin-bottom: 1em;
+    height: 12.5em;
 }
 
 .postBody {

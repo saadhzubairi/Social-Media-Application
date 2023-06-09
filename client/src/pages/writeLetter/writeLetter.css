@@ -30,3 +30,26 @@
 .ql-snow {
     border: 1px solid #e7e7e7 !important;
 }
+
+.FPBottomVP {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.floating-action-button:disabled{
+    background-color: rgb(156, 154, 154);
+    color: rgb(98, 98, 98);
+    cursor: auto;
+}
+
+.letterCount-low{
+    font-weight: 700;
+    color: brown;
+}
+.letterCount-ok{
+    font-weight: 700;
+    color: green;
+}

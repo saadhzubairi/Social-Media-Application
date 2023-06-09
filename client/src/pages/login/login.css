@@ -13,6 +13,15 @@
     display: flex;
 }
 
+.loginInnerBox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+    flex-direction: column;
+}
+
 .loginLeft,
 .loginRight {
     display: flex;
@@ -38,7 +47,8 @@
     gap: 1em;
     background-color: rgb(241, 241, 241);
     align-items: center;
-    padding: 8em;
+    justify-content: center;
+    padding: 2em;
     box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
     -webkit-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);
     -moz-box-shadow: 1px 11px 42px 5px rgba(0, 0, 0, 0.09);

@@ -1,4 +1,4 @@
-import { PeopleOutline } from "@mui/icons-material"
+import { Facebook, Instagram, PeopleOutline, Twitter } from "@mui/icons-material"
 import FriendBox from "./FriendBox"
 import "./sidebar.css"
 import { useContext, useEffect, useState } from "react"
@@ -12,7 +12,6 @@ function Sidebar(props) {
                 <div className="friendsContainerHeader">
                     <div className="friendsListHeading"><PeopleOutline /> Friends</div>
                     <div className="friendsListSubHeading">You have 12 friends</div>
-
                 </div>
                 <div className="friendsListViewPort">
                     {
@@ -28,6 +27,16 @@ function Sidebar(props) {
                             </div>
                     }
                 </div>
+            </div>
+            <div className="houseKeepingInfo">
+                Hoops Web (v1.3.4) <br />
+                <a href="">FAQ</a> • <a href="">Terms of service</a> • <a href="">Privacy Policy</a>
+            </div>
+
+            <div className="houseKeepingIcons">
+                <Twitter className="houseKeepingIcon" />
+                <Facebook className="houseKeepingIcon" />
+                <Instagram className="houseKeepingIcon" />
             </div>
         </div>
     )

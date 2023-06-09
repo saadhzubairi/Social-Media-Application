@@ -42,8 +42,8 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json(err);
     }
 });
-//like / dislike a post
 
+//like / dislike a post
 router.put("/:id/like", async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
@@ -73,7 +73,6 @@ router.get("/:id", async (req, res) => {
 router.get("/timeline/:userId", async (req, res) => {
     try {
         const currentUser = await Butterfly.findById(req.params.userId);
-        console.log(currentUser)
         const userPosts = await Post.find({ userId: currentUser._id });
         const friendPosts = await Promise.all(
             currentUser.pals.map((friendId) => {

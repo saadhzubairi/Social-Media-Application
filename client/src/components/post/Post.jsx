@@ -3,6 +3,7 @@ import "./post.css";
 import { useEffect, useState } from "react";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
+import { DeleteOutline } from "@mui/icons-material";
 
 function Post({ post }) {
     const [poster, setPoster] = useState({ _id: "n/a" })
@@ -12,11 +13,24 @@ function Post({ post }) {
             await axios.get(`/butterfly?id=${post.userId}`).then(res => setPoster(res.data)).catch(err => console.log(err))
         }
         fetchPoster();
-    })
+    }, [])
+
+    const delPost = async () => {
+        setPoster({ _id: "n/a" })
+        await axios.delete(`/posts/${post._id}`, {
+            data: {
+                userId: poster._id
+            }
+        })
+    }
 
     return (
         <div className="post">
-            {poster._id === "n/a" ? < CircularProgress /> :
+            {poster._id === "n/a" ?
+                <div className="loadingWrapper">
+                    < CircularProgress />
+                </div>
+                :
                 <div className="postWrapper">
                     <div className="friendpostleftSide">
                         <div className="postTop">
@@ -39,6 +53,7 @@ function Post({ post }) {
                             </div>
                     }
                 </div>}
+            <div className="deletePost" onClick={delPost}><DeleteOutline /></div>
         </div>
     )
 }

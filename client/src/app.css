@@ -12,21 +12,3 @@
 .content {
     flex: 4;
 }
-
-@media (max-width: 1550px) {
-    .content {
-        flex: 3;
-    }
-}
-
-@media (max-width: 1450px) {
-    .content {
-        flex: 2;
-    }
-}
-
-@media (max-width: 1350px) {
-    .content {
-        flex: 1;
-    }
-}

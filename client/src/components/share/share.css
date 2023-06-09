@@ -7,6 +7,15 @@
     margin: 1em 0em;
     overflow: hidden;
     justify-content: space-between;
+    box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+}
+
+.share:hover {
+    box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.25);
 }
 
 .shareAnUpdate {
@@ -26,7 +35,7 @@
     width: 100%;
 }
 
-.isSharing{
+.isSharing {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,8 +94,10 @@
 .shareInput {
     border: none;
     font-size: 20px;
-    font-weight: 300;
-    width: 100%;    
+    font-weight: 500;
+    color: rgb(78, 78, 78);
+    width: 100%;
+
 }
 
 .shareInput:focus {
@@ -124,7 +135,7 @@
     user-select: none;
 }
 
-.upProgress{
+.upProgress {
     height: 12em;
     width: 10em;
     display: flex;

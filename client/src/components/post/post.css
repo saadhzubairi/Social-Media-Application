@@ -3,6 +3,17 @@
     background-color: white;
     border: 1px solid #e7e7e7;
     height: 10em;
+    box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    user-select: none;
+}
+
+.post:hover {
+    cursor: pointer;
+    box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.25);
 }
 
 .postWrapper {
@@ -50,4 +61,27 @@
     padding: 1em 0em;
     word-wrap: normal;
     transition: 0ms !important;
+}
+
+.loadingWrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0em 5em;
+}
+
+.deletePost {
+    background-color: rgb(200, 164, 164);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0em 0.25em;
+}
+
+.deletePost:hover {
+    background-color: brown;
 }

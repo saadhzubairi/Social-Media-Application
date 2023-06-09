@@ -8,7 +8,6 @@ function Home() {
     const nav = useNavigate();
     const { user } = useContext(AuthContext)
     useEffect(() => {
-        console.log(user);
         if (user === null) {
             nav("/App/asdasd/asdasd")
         }

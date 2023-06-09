@@ -29,16 +29,18 @@ function Login(props) {
                 </div>
                 <div className="loginRight">
                     <form className="loginBox" onSubmit={handleClick}>
-                        <input type="email" className="loginTextField"
-                            placeholder='Email' ref={email} required />
-                        <input type="password" className="loginTextField"
-                            minLength="6" placeholder='Password' ref={password} required />
+                        <div className="loginInnerBox">
+                            <input type="email" className="loginTextField"
+                                placeholder='Email' ref={email} required />
+                            <input type="password" className="loginTextField"
+                                minLength="6" placeholder='Password' ref={password} required />
 
-                        <button className="loginButton">{isFetching ? <CircularProgress color='inherit' /> : "Log in"}</button>
-                        <Link to={"/register"}>
-                            <button className="registerButton" disabled={isFetching ? true : false}>Sign up</button>
-                        </Link>
-                        <span className="forgotPassword" >Forgot Password?</span>
+                            <button className="loginButton">{isFetching ? <CircularProgress color='inherit' /> : "Log in"}</button>
+                            <Link to={"/register"}>
+                                <button className="registerButton" disabled={isFetching ? true : false}>Sign up</button>
+                            </Link>
+                            <span className="forgotPassword" >Forgot Password?</span>
+                        </div>
                     </form>
                 </div>
             </div>

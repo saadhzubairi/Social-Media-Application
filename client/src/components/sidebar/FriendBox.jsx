@@ -3,6 +3,7 @@ import './friendBox.css'
 import { Link } from "react-router-dom"
 import axios from 'axios'
 import { CircularProgress } from '@mui/material'
+import { format } from 'timeago.js'
 function FriendBox({ pal }) {
 
     const [mypal, setPal] = useState({ _id: "n/a" })
@@ -12,12 +13,13 @@ function FriendBox({ pal }) {
             axios.get(`/butterfly?id=${pal}`).then(res => setPal(res.data)).catch(err => console.log(err))
         }
         fetchPal();
-    })
+    }, [])
 
     return (
         <Link to={`friend/${pal}`} style={{ textDecoration: "none", color: "#444" }}>
             {
-                mypal._id == "n/a" ? <CircularProgress /> :
+                mypal._id == "n/a" ? <div className="myPalLoading"><CircularProgress /></div>
+                    :
                     <div className="friendBoxContainer">
                         <div className="avatarAndText">
                             <img src={mypal.pfp} alt="" className="avatar" />
@@ -27,7 +29,7 @@ function FriendBox({ pal }) {
                             </div>
                         </div>
                         <div className="lastTextAndStatus">
-                            <div className="lastText">5 days ago</div>
+                            <div className="lastText">{mypal.city}</div>
                             <div className="status"></div>
                         </div>
                     </div>

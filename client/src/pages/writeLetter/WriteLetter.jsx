@@ -14,8 +14,18 @@ function WriteLetter({ toHome }) {
     const { user } = useContext(AuthContext)
     const [sending, setSending] = useState(false)
     const navigate = useNavigate()
+    const [letterCount, setLetterCount] = useState(0)
+
+    function countLetters(htmlString) {
+        const strippedString = htmlString.replace(/<[^>]+>/g, '');
+        const trimmedString = strippedString.replace(/\s/g, '');
+        const letterCount = trimmedString.length;
+        return letterCount;
+    }
+
     const handleChange = (e) => {
         setContent(e)
+        setLetterCount(countLetters(e));
     }
 
     useEffect(() => {
@@ -23,7 +33,7 @@ function WriteLetter({ toHome }) {
             await axios.get(`/butterfly?id=${id}`).then(res => setFriend(res.data)).catch(err => console.log(err))
         }
         fetchFriend()
-    })
+    }, [])
 
     function formatDateWithAge(dateString) {
         const date = new Date(dateString);
@@ -88,12 +98,13 @@ function WriteLetter({ toHome }) {
                                 alt="" className="mImageF" />
                         </div>
                         <div className="FPBottomVP">
+                            <div className={letterCount < 600 ? "letterCount-low" : "letterCount-ok"}>{letterCount}/600 {letterCount < 600 ? "Need more characters" : "Character limit complete"}</div>
                             <div className="FPBottom">
                                 <ReactQuill theme="snow" value={letterContent} onChange={handleChange} />
                             </div>
                         </div>
                     </div>}
-            <button className="floating-action-button" onClick={sendLetter}>
+            <button className="floating-action-button" onClick={sendLetter} disabled={letterCount > 599 ? false : true}>
                 <Send /> {sending ? <CircularProgress /> : "Send"}
             </button>
         </div>

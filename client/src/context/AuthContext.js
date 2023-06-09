@@ -14,7 +14,7 @@ export const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(state.user))
-    }, [state.user])
+    }, [state.user,state.pal])
 
     return (
         <AuthContext.Provider value=
@@ -22,6 +22,7 @@ export const AuthContextProvider = ({ children }) => {
                 user: state.user,
                 isFetching: state.isFetching,
                 error: state.error,
+                pal: null,
                 dispatch
             }}
         >

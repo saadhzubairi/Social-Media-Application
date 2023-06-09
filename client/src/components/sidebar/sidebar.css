@@ -8,9 +8,12 @@
 .friendsContainer {
     height: 77.5vh;
     border: 1px solid #e7e7e7;
+    box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
 }
 
-.noFriends{
+.noFriends {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +32,7 @@
     background-color: #F8F8F8;
 }
 
-.friendsListHeading{
+.friendsListHeading {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -38,7 +41,7 @@
     font-size: 1.1em;
 }
 
-.friendsListSubHeading{
+.friendsListSubHeading {
     font-weight: 600;
     font-size: 0.9em;
     color: rgb(159, 159, 159);
@@ -60,7 +63,29 @@
     background-color: rgb(179, 179, 179);
 }
 
-.friendsListViewPort{
+.friendsListViewPort {
     height: 70vh;
-    overflow-y:scroll ;
+    overflow-y: scroll;
+}
+
+.houseKeepingInfo {
+    font-size: 0.75em;
+    padding: 0.65em;
+    font-weight: 700;
+    color: rgb(164, 164, 164);
+}
+
+.houseKeepingIcon {
+    color: rgb(149, 148, 148);
+    height: 0.8em;
+    width: 0.8em;
+}
+
+.houseKeepingIcons {
+    display: flex;
+    gap: 1em;
+}
+
+a {
+    color: rgb(164, 164, 164);
 }

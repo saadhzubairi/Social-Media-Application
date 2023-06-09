@@ -5,16 +5,20 @@ import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import SugFriend from "../sugFriend/SugFriend"
 import { AuthContext } from "../../context/AuthContext"
+import { CircularProgress } from "@mui/material"
 /* import { Posts } from "../../dummydata" */
 function Feed({ username }) {
     const [posts, setPosts] = useState([])
     const [sugs, setSugs] = useState([])
     const [wSuggestion, setWsuggestion] = useState([])
+    const [isFetchingSuggs, setIsFetchingSuggs] = useState(false)
+    const [shared, setShared] = useState(false)
     const { user } = useContext(AuthContext)
+    const [filteredSuggestions, setFilteredSuggestions] = useState(wSuggestion.sort((a, b) => b.commonInts - a.commonInts).filter((s) => !user.pals.includes(s.suggestion._id)));
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     const calcWsuggestions = () => {
         const newWsuggestions = [];
-
         for (let i = 0; i < sugs.length; i++) {
             const sugg = sugs[i];
             if (sugg._id === user._id) {
@@ -32,40 +36,82 @@ function Feed({ username }) {
     }
 
     useEffect(() => {
+        console.log("sugs updated:", sugs);
+        calcWsuggestions();
+        setFilteredSuggestions(
+            wSuggestion
+                .sort((a, b) => b.commonInts - a.commonInts)
+                .filter((s) => !user.pals.includes(s.suggestion._id))
+        );
+    }, [sugs]);
+
+    useEffect(() => {
+        const fetchSugs = async () => {
+            setIsFetchingSuggs(true)
+            try {
+                const response = await axios.get("/butterfly");
+                const fetchedSugs = response.data;
+                setSugs(fetchedSugs);
+                console.log(sugs);
+                setIsFetchingSuggs(false)
+            } catch (err) {
+                console.log(err);
+                setIsFetchingSuggs(false)
+            }
+        };
+        fetchSugs();
+        const intervalId = setInterval(fetchSugs, 15000);
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [])
+
+    useEffect(() => {
         const fetchPosts = async () => {
-            axios.get(`/posts/timeline/${user._id}`).then(res =>
+            await axios.get(`/posts/timeline/${user._id}`).then(res =>
                 setPosts(res.data)
             ).catch(err => console.log(err))
+            setShared(false)
         }
         fetchPosts();
-        const fetchSugs = async () => {
-            axios.get("/butterfly").then(res => {
-                setSugs(res.data)
-                calcWsuggestions();
-            }).catch(err => console.log(err))
-        }
-        fetchSugs();
-    }, [wSuggestion])
+        const intervalId = setInterval(fetchPosts, 1000);
+        return () => {
+            clearInterval(intervalId);
+        };
+    },[shared])
 
     return (
         <div className="feed">
             <div className="feedWrapper">
                 {/* <div className="feedWelcom">Hello, {user.name.fname} 👋🏻</div> */}
-                <Share />
+                <Share setShared={setShared} />
                 <div className="feedupdates">Suggested Friends 🍟</div>
                 <div className="postScaffoldViewPort">
-                    <div className="postsScaffold">
-                        {
-                            wSuggestion.sort((a, b) => b.commonInts - a.commonInts).map((s) => <SugFriend key={s.suggestion._id} wSugg={s} />)
-                        }
-                    </div>
+                    {isFetchingSuggs ? <div className="noSugsF"><CircularProgress />Loading...</div> :
+                        <div className="postsScaffold">
+                            {
+                                filteredSuggestions.length > 0 ? (
+                                    filteredSuggestions.map((s) => (
+                                        <SugFriend key={s.suggestion._id} wSugg={s} />
+                                    ))
+                                ) : (
+                                    <div className="noSugsF">No suggestions found.</div>
+                                )
+                            }
+                        </div>
+                    }
                 </div>
                 <div className="feedupdates">Updates 🚀</div>
                 <div className="postScaffoldViewPort">
                     <div className="postsScaffold">
-                        {posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((p) => (
-                            <Post key={p} post={p} />
-                        ))}
+                        {
+                            posts.length > 0 ?
+                                (posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((p) => (
+                                    <Post key={p._id} post={p}  />
+                                )))
+                                :
+                                (<div className="noSugsF">No posts found.</div>)
+                        }
                     </div>
                 </div>
 

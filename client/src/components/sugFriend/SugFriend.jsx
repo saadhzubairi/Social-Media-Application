@@ -77,7 +77,7 @@ function SugFriend({ wSugg }) {
             </div>
             {modal && (
                 <div className="modal">
-                    <div className="overlay" onClick={toggleModal}>
+                    <div className="overlay" >
                         <div className="modal-content">
                             <div className="mTop">
                                 <div className="mUsername">{suggestion.username}</div>

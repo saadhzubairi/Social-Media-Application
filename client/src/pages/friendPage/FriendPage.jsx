@@ -1,17 +1,20 @@
-import { Cake, MessageOutlined, PinDropOutlined, Star } from "@mui/icons-material"
-import { Link, useParams } from "react-router-dom"
+import { Cake, MessageOutlined, NoAccountsOutlined, PinDropOutlined, Star } from "@mui/icons-material"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import "./friendPage.css"
 import Letter from "../../components/letter/Letter"
 import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { AuthContext } from "../../context/AuthContext"
-import { LinearProgress } from "@mui/material"
+import { CircularProgress, LinearProgress } from "@mui/material"
 function FriendPage(props) {
     const { id } = useParams()
     const [stat, setStat] = useState("n/a")
     const [mypal, setPal] = useState({ _id: "n/a" })
     const [ourLetters, setLetters] = useState([])
     const { user } = useContext(AuthContext)
+    const [delayer, setDelayer] = useState(false)
+    const nav = useNavigate()
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     useEffect(() => {
         const fetchPal = async () => {
@@ -38,7 +41,7 @@ function FriendPage(props) {
             fetchLetters();
             setStat(id)
         }
-    })
+    }, [])
 
     function formatDateWithAge(dateString) {
         const date = new Date(dateString);
@@ -62,6 +65,14 @@ function FriendPage(props) {
         return `${dayWithSuffix} ${month} (${age} y.o)`;
     }
 
+    const handleWriteLetter = async () => {
+        setDelayer(true)
+        await delay(500).then(
+            () =>
+                nav('letter/')
+        )
+    }
+
     return (
         <>
             {
@@ -83,17 +94,22 @@ function FriendPage(props) {
                                 alt="" className="mImage" />
                         </div>
                         <div className="FPBody">
-                            <div className="lettersGrid">
-                                {ourLetters.map((l) => <Letter key={l._id} letter={l} pal={mypal} />)}
-                                <div className="FPsizing"></div>
-                            </div>
+                            {
+                                ourLetters.length === 0 ?
+                                    <div className="noLetters"><NoAccountsOutlined style={{ height: "4em" }} /> No letters yet. Start Talking!</div> :
+                                    <div className="lettersGrid">
+                                        {
+                                            ourLetters
+                                                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                                                .map((l) => <Letter key={l._id} letter={l} pal={mypal} />)
+                                        }
+                                        <div className="FPsizing"></div>
+                                    </div>}
                         </div>
-                        <Link to={"letter/"} style={{ textDecoration: "none" }}>
-                            <button className="floating-action-button">
-                                <MessageOutlined /> Write letter
-                            </button>
-                        </Link>
+                        <button className="floating-action-button" onClick={handleWriteLetter} >
 
+                            {delayer ? <CircularProgress color="inherit" /> : <div className="butin"><MessageOutlined /> Write letter</div>}
+                        </button>
                     </div>}
         </>
     )
