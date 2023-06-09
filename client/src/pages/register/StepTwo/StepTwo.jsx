@@ -29,6 +29,11 @@ function StepTwo({ setStepTrack }) {
         localStorage.setItem("bio", formData.bio)
         setStepTrack(3)
     }
+
+    const prevPls = () => {
+        setStepTrack(1)
+    }
+
     return (
         <div>
             <form onSubmit={(e) => onSubmit(e)}>
@@ -47,7 +52,10 @@ function StepTwo({ setStepTrack }) {
                     <input type="date" autoComplete='off' name='DOB' className="registerTextField" required onChange={handleChange} value={formData.DOB} placeholder='Birthday' />
                     <input type="text" autoComplete='off' name='MBTI' className="registerTextField" required onChange={handleChange} value={formData.MBTI} placeholder='MBTI Personality' />
                     <textarea type="text" autoComplete='off' name='bio' className="registerTextField" required onChange={handleChange} value={formData.bio} placeholder='Bio' />
-                    <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                    <div className="buttonClass">
+                        <button className="registerButton" id='backButton' onClick={prevPls}>{loading ? <CircularProgress color='inherit' /> : "Previous"}</button>
+                        <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                    </div>
                 </div>
             </form>
         </div>

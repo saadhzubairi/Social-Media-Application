@@ -60,7 +60,7 @@ function Feed({ username }) {
             }
         };
         fetchSugs();
-        const intervalId = setInterval(fetchSugs, 15000);
+        const intervalId = setInterval(fetchSugs, 30000);
         return () => {
             clearInterval(intervalId);
         };

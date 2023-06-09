@@ -23,6 +23,10 @@ function StepThree({ setStepTrack, setMyInterests }) {
         }
     }
 
+    const prevPls = () => {
+        setStepTrack(2)
+    }
+
     return (
         <div>
             <form onSubmit={(e) => onSubmit(e)}>
@@ -35,7 +39,10 @@ function StepThree({ setStepTrack, setMyInterests }) {
                             )}
                         </div>
                     </div>
-                    <button className="registerButton" onClick={onSubmit}>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                    <div className="buttonClass">
+                        <button className="registerButton" id='backButton' onClick={prevPls}>{loading ? <CircularProgress color='inherit' /> : "Previous"}</button>
+                        <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                    </div>
                 </div>
             </form>
         </div>

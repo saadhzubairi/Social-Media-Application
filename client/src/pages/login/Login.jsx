@@ -46,7 +46,7 @@ function Login(props) {
 
                             <button className="loginButton" type='submit'>{isFetching ? <CircularProgress color='inherit' /> : "Log in"}</button>
 
-                            <button className="registerButton" type='none' onClick={(e) => toRegister(e)} disabled={isFetching ? true : false}>{loading ? <CircularProgress /> : "Sign up"}</button>
+                            <button className="registerButtonl" type='none' onClick={(e) => toRegister(e)} disabled={isFetching ? true : false}>{loading ? <CircularProgress /> : "Sign up"}</button>
 
                             <span className="forgotPassword" >Forgot Password?</span>
                         </div>

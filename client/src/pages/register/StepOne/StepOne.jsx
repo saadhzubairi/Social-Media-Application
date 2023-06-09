@@ -1,5 +1,7 @@
 import { CircularProgress } from '@mui/material';
+import { Link, NavLink } from "react-router-dom"
 import React, { useState } from 'react'
+import axios from "axios"
 function StepOne({ setStepTrack }) {
     const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     const [loading, setLoading] = useState(false)
@@ -11,12 +13,19 @@ function StepOne({ setStepTrack }) {
         password: '',
     })
 
-    const handleChange = (event) => {
+    const handleChange = async (event) => {
         event.preventDefault()
         setFormData({
             ...formData,
             [event.target.name]: event.target.value,
         });
+        if (event.target.name === "username" && event.target.name.length !== 0) {
+            await axios.get(`/butterfly/checkUsername/${event.target.value}`).then(res => console.log(res.data)).catch(err => console.log(err))
+        }
+        if (event.target.name === "email" && event.target.name.length !== 0) {
+            await axios.get(`/butterfly/checkEmail/${event.target.value}`).then(res => console.log(res.data)).catch(err => console.log(err))
+        }
+        
     };
 
     const onSubmit = async (e) => {
@@ -31,6 +40,11 @@ function StepOne({ setStepTrack }) {
         localStorage.setItem("password", formData.password)
         setStepTrack(2)
     }
+
+    const prevPls = () => {
+        setStepTrack(1)
+    }
+
     return (
         <div>
             <form onSubmit={(e) => onSubmit(e)}>
@@ -43,8 +57,12 @@ function StepOne({ setStepTrack }) {
                     <input type="email" autoComplete='off' name='email' className="registerTextField" required onChange={handleChange} value={formData.email} placeholder='Email' />
                     <input type="password" autoComplete='off' name='passwordV' className="registerTextField" required placeholder='Password' />
                     <input type="password" autoComplete='off' name='password' className="registerTextField" required onChange={handleChange} value={formData.password} placeholder='Password Again' />
-                    <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit'/> : "Next"}</button>
-                    <span className="forgotPassword" >Already have an account?</span>
+                    <div className="buttonClass">
+                        <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                    </div>
+                    <NavLink to={"/"}>
+                        <span className="forgotPassword" >Already have an account?</span>
+                    </NavLink>
                 </div>
             </form>
         </div>

@@ -68,7 +68,7 @@
 }
 
 .loginButton,
-.registerButton {
+.registerButtonl {
     font-size: 1.5em;
     font-weight: 500;
     border: none;
@@ -85,7 +85,7 @@
 }
 
 .loginButton:hover,
-.registerButton:hover {
+.registerButtonl:hover {
     box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.43);
     -webkit-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.43);
     -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.43);
@@ -106,20 +106,20 @@
     background-color: rgb(104, 3, 176);
 }
 
-.registerButton {
+.registerButtonl {
     color: indigo;
     background-color: rgb(239, 219, 252);
 }
 
-.registerButton:hover {
+.registerButtonl:hover {
     background-color: rgb(214, 190, 229);
 }
 
-.registerButton:active {
+.registerButtonl:active {
     background-color: rgb(248, 237, 255);
 }
 
-.registerButton:disabled {
+.registerButtonl:disabled {
     background-color: rgb(205, 198, 210);
     color: gray;
 }

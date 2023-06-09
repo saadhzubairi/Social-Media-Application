@@ -47,6 +47,10 @@ function StepFive({ setStepTrack, interests, schedule }) {
         console.log(imgUrl);
     }
 
+    const prevPls = () => {
+        setStepTrack(1)
+    }
+
     return (
         <div>
             <div className="registerBox-four">
@@ -56,7 +60,11 @@ function StepFive({ setStepTrack, interests, schedule }) {
                 <img src={imgUrl} alt="" className="ChooseAvatar" />
                 <input id="stepFiveTF" type="text" name='username'
                     className="registerTextField" required onChange={handleChange} placeholder='Enter Prompt' />
-                <button className="registerButton" onClick={onSubmit}>{isFetching ? <CircularProgress color='inherit' /> : "Create Account"}</button>
+
+                <div className="buttonClass">
+                    <button className="registerButton" id='backButton' onClick={prevPls}>{"Previous"}</button>
+                    <button className="registerButton" onClick={onSubmit}>{isFetching ? <CircularProgress color='inherit' /> : "Create Account"}</button>
+                </div>
             </div>
         </div>
     )

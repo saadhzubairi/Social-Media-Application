@@ -170,4 +170,38 @@ router.put('/:id/pals', async (req, res) => {
     }
 });
 
+router.get("/checkUsername/:username", async (req, res) => {
+    const { username } = req.params;
+
+    try {
+        const existingUser = await Butterfly.findOne({ username });
+
+        if (existingUser) {
+            res.json({ exists: true });
+        } else {
+            res.json({ exists: false });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+router.get("/checkEmail/:email", async (req, res) => {
+    const { email } = req.params;
+
+    try {
+        const existingUser = await Butterfly.findOne({ email });
+
+        if (existingUser) {
+            res.json({ exists: true });
+        } else {
+            res.json({ exists: false });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
 module.exports = router;

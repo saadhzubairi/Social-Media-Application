@@ -65,7 +65,10 @@ function StepFour({ setStepTrack, setDaySchedules }) {
         setDaySchedules(daySchedules)
         setStepTrack(5)
     }
-
+    
+    const prevPls = () => {
+        setStepTrack(1)
+    }
 
     return (
         <div>
@@ -98,7 +101,10 @@ function StepFour({ setStepTrack, setDaySchedules }) {
                         ))}
                     </tbody>
                 </table>
-                <button className="registerButton" onClick={onSubmit}>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                <div className="buttonClass">
+                    <button className="registerButton" id='backButton' onClick={prevPls}>{loading ? <CircularProgress color='inherit' /> : "Previous"}</button>
+                    <button className="registerButton" onClick={onSubmit}>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
+                </div>
             </div>
         </div>
     )
