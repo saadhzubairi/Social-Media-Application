@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import './stepFour.css'
+import { CircularProgress } from '@mui/material';
 function StepFour({ setStepTrack, setDaySchedules }) {
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const [loading, setLoading] = useState(false)
     const [selectedSlots, setSelectedSlots] = useState([]);
 
     const handleSlotChange = (day, slot) => {
@@ -54,8 +57,10 @@ function StepFour({ setStepTrack, setDaySchedules }) {
 
     const daySchedules = daysOfWeek.map((day) => createDaySchedule(day));
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault()
+        setLoading(true)
+        await delay(500);
         console.log(daySchedules);
         setDaySchedules(daySchedules)
         setStepTrack(5)
@@ -93,7 +98,7 @@ function StepFour({ setStepTrack, setDaySchedules }) {
                         ))}
                     </tbody>
                 </table>
-                <button className="registerButton" onClick={onSubmit}>Next</button>
+                <button className="registerButton" onClick={onSubmit}>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
             </div>
         </div>
     )

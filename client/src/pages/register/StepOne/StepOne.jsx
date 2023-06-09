@@ -1,5 +1,8 @@
+import { CircularProgress } from '@mui/material';
 import React, { useState } from 'react'
 function StepOne({ setStepTrack }) {
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         fname: '',
         lname: '',
@@ -16,8 +19,10 @@ function StepOne({ setStepTrack }) {
         });
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
+        await delay(500);
         console.log(formData);
         localStorage.setItem("fname", formData.fname)
         localStorage.setItem("lname", formData.lname)
@@ -38,7 +43,7 @@ function StepOne({ setStepTrack }) {
                     <input type="email" autoComplete='off' name='email' className="registerTextField" required onChange={handleChange} value={formData.email} placeholder='Email' />
                     <input type="password" autoComplete='off' name='passwordV' className="registerTextField" required placeholder='Password' />
                     <input type="password" autoComplete='off' name='password' className="registerTextField" required onChange={handleChange} value={formData.password} placeholder='Password Again' />
-                    <button className="registerButton" type='submit'>Sign Up</button>
+                    <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit'/> : "Next"}</button>
                     <span className="forgotPassword" >Already have an account?</span>
                 </div>
             </form>

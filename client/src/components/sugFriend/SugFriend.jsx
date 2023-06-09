@@ -5,12 +5,14 @@ import { useContext, useState } from 'react';
 import { format } from "timeago.js"
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
+import { CircularProgress } from '@mui/material';
 
 function SugFriend({ wSugg }) {
     const { commonInts, suggestion } = wSugg
     const [modal, setModal] = useState(false);
-    const toggleModal = () => { setModal(!modal); }
+    const toggleModal = () => { setModal(!modal); console.log('pressed'); }
     const { user, dispatch } = useContext(AuthContext)
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     function formatDateWithAge(dateString) {
         const date = new Date(dateString);
@@ -35,6 +37,8 @@ function SugFriend({ wSugg }) {
     }
 
     const handleWriteLetter = async () => {
+        setLoading(true)
+
         if (user.pals.includes(suggestion._id)) {
 
         } else {
@@ -77,7 +81,7 @@ function SugFriend({ wSugg }) {
             </div>
             {modal && (
                 <div className="modal">
-                    <div className="overlay" >
+                    <div className="overlay" onClick={toggleModal} >
                         <div className="modal-content">
                             <div className="mTop">
                                 <div className="mUsername">{suggestion.username}</div>
@@ -111,7 +115,12 @@ function SugFriend({ wSugg }) {
                             </div>
                             <div className="mBottomBottom">
                                 {/* <Link to={`friend/${suggestion._id}/letter/`} style={{ textDecoration: "none" }}> */}
-                                <button className="writeLetter" onClick={handleWriteLetter}><MessageOutlined /> Write letter</button>
+                                <button className="writeLetter" onClick={handleWriteLetter}>
+                                    {
+                                        loading ? <CircularProgress color='inherit' size={25} /> :
+                                            <><MessageOutlined />Write letter</>
+                                    }
+                                </button>
                                 {/* </Link> */}
                             </div>
                         </div>

@@ -1,5 +1,8 @@
+import { CircularProgress } from '@mui/material';
 import React, { useState } from 'react'
 function StepTwo({ setStepTrack }) {
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         gender: '',
         city: 'Karachi, PK',
@@ -15,8 +18,10 @@ function StepTwo({ setStepTrack }) {
         });
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
+        await delay(500);
         localStorage.setItem("gender", formData.gender)
         localStorage.setItem("city", formData.city)
         localStorage.setItem("DOB", formData.DOB)
@@ -42,7 +47,7 @@ function StepTwo({ setStepTrack }) {
                     <input type="date" autoComplete='off' name='DOB' className="registerTextField" required onChange={handleChange} value={formData.DOB} placeholder='Birthday' />
                     <input type="text" autoComplete='off' name='MBTI' className="registerTextField" required onChange={handleChange} value={formData.MBTI} placeholder='MBTI Personality' />
                     <textarea type="text" autoComplete='off' name='bio' className="registerTextField" required onChange={handleChange} value={formData.bio} placeholder='Bio' />
-                    <button className="registerButton" type='submit'>Next</button>
+                    <button className="registerButton" type='submit'>{loading ? <CircularProgress color='inherit' /> : "Next"}</button>
                 </div>
             </form>
         </div>
