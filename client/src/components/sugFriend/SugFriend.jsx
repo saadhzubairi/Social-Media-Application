@@ -10,7 +10,7 @@ import { CircularProgress } from '@mui/material';
 function SugFriend({ wSugg }) {
     const { commonInts, suggestion } = wSugg
     const [modal, setModal] = useState(false);
-    const toggleModal = () => { setModal(!modal); console.log('pressed'); }
+    const toggleModal = () => { setModal(!modal); }
     const { user, dispatch } = useContext(AuthContext)
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()

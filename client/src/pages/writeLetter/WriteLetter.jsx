@@ -14,6 +14,8 @@ function WriteLetter({ toHome }) {
     const { user } = useContext(AuthContext)
     const [sending, setSending] = useState(false)
     const navigate = useNavigate()
+    const [delayer, setDelayer] = useState(false)
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     const [letterCount, setLetterCount] = useState(0)
 
     function countLetters(htmlString) {
@@ -58,7 +60,7 @@ function WriteLetter({ toHome }) {
     }
 
     const sendLetter = () => {
-        setSending(true)
+        setDelayer(true)
         let ConvoId = ''
         if (user._id > id) ConvoId = `${user._id}-${id}`
         else ConvoId = `${id}-${user._id}`
@@ -70,8 +72,12 @@ function WriteLetter({ toHome }) {
             status: 0,
         }
 
-        axios.post(`/letters`, letter).then(
-            navigate(`/App/friend/${id}`)
+        axios.post(`/letters`, letter).then(async () => {
+            await delay(500).then(
+                () =>
+                    navigate(`/App/friend/${id}`)
+            )
+        }
         ).catch((err) => console.log(err))
 
     }
@@ -105,7 +111,7 @@ function WriteLetter({ toHome }) {
                         </div>
                     </div>}
             <button className="floating-action-button" onClick={sendLetter} disabled={letterCount > 599 ? false : true}>
-                <Send /> {sending ? <CircularProgress /> : "Send"}
+                {delayer ? <CircularProgress color="inherit" /> : <><Send />Send</>}
             </button>
         </div>
     )

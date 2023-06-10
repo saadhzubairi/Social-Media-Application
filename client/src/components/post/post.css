@@ -42,6 +42,7 @@
 .postImg {
     height: 10em;
     width: 10em;
+    object-fit: cover;
 }
 
 .PostName {

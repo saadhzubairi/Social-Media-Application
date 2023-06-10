@@ -63,7 +63,7 @@
 .FPBody {
     padding: 1em;
     display: flex;
-    height: 67vh;
+    height: 55vh;
     overflow-y: scroll;
     width: 100%;
 }
@@ -96,4 +96,9 @@
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+}
+
+.spacer{
+    height: 10em;
+    width: 100%;
 }

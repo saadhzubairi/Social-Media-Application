@@ -114,7 +114,7 @@ export default function Share({ setShared }) {
             </div>}
             <div className="shareButton">
               <ShareOutlined />
-              <div className="shareText" onClick={sharePost}>SHARE</div>
+              <div className="shareText" onClick={sharePost}>POST</div>
             </div>
           </div>
         </>

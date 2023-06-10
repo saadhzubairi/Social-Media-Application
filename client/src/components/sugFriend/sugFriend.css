@@ -116,11 +116,25 @@ ul {
     width: 9em;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .mBottomArea {
-    height: 47vh;
+    height: 48vh;
     overflow-y: scroll;
+}
+
+.mBottomAreaRight{
+    width: 30vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: max-content;
+}
+
+.postsContainer{
+    display: flex;
+    gap: 0.5em;
+
 }
 
 .mBottom {
@@ -153,7 +167,6 @@ ul {
     padding-top: 1em;
 }
 
-.interestsContainer {}
 
 .interestsChips {
     display: flex;

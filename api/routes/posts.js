@@ -95,4 +95,15 @@ router.get("/timeline/of/:id", async (req, res) => {
     }
 });
 
+router.get("/of/:userId", async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const posts = await Post.find({ userId });
+        res.json(posts);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
 module.exports = router;

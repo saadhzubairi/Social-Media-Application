@@ -1,13 +1,14 @@
 import { format } from "timeago.js";
 import "./post.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { DeleteOutline } from "@mui/icons-material";
+import { AuthContext } from "../../context/AuthContext";
 
 function Post({ post }) {
     const [poster, setPoster] = useState({ _id: "n/a" })
-
+    const { user } = useContext(AuthContext)
     useEffect(() => {
         const fetchPoster = async () => {
             await axios.get(`/butterfly?id=${post.userId}`).then(res => setPoster(res.data)).catch(err => console.log(err))
@@ -53,7 +54,11 @@ function Post({ post }) {
                             </div>
                     }
                 </div>}
-            <div className="deletePost" onClick={delPost}><DeleteOutline /></div>
+            {
+                poster._id === user._id ?
+                    <div className="deletePost" onClick={delPost}><DeleteOutline /></div>
+                    : null
+            }
         </div>
     )
 }
