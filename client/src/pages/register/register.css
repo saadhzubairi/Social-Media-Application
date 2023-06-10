@@ -67,6 +67,7 @@
     -moz-box-shadow: 1px 11px 12px -8px rgba(0, 0, 0, 0.1);
     display: flex;
     width: 100%;
+    border: ;
 }
 
 .registerTextField:focus {
@@ -88,6 +89,8 @@
     cursor: pointer;
     transition: 300ms;
     width: 8em;
+    /* border: 2px solid transparent */
+    ;
 }
 
 .registerButton:hover {
@@ -118,19 +121,21 @@
     background-color: rgb(248, 237, 255);
 }
 
-#backButton{
+#backButton {
     color: crimson;
-    background-color:rgb(252, 222, 228);
-}
-#backButton:hover{
-    
-    background-color:rgb(205, 182, 186);
-}
-#backButton:active{
-    background-color:rgb(249, 234, 237);
+    background-color: rgb(252, 222, 228);
 }
 
-.buttonClass{
+#backButton:hover {
+
+    background-color: rgb(205, 182, 186);
+}
+
+#backButton:active {
+    background-color: rgb(249, 234, 237);
+}
+
+.buttonClass {
     display: flex;
     gap: 1em;
 }
@@ -159,4 +164,36 @@
 
 select {
     width: 107% !important;
+}
+
+#redTF {
+    outline: dashed 2px red;
+    background-color: rgb(252, 236, 236);
+}
+
+#greenTF {
+    outline: dashed 2px green;
+    background-color: rgb(227, 255, 227);
+}
+
+.registerButton:disabled {
+    cursor: auto;
+    background-color: gainsboro;
+    color: gray;
+}
+
+.initText {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 1em;
+    color: gray;
+    text-align: center;
+}
+
+.initText-angry {
+    color: brown;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 1em;
+    text-align: center;
 }
