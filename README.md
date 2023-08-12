@@ -1,0 +1,11 @@
+# Hoops - A new kind of social media!
+![WhatsApp Image 2023-08-12 at 10 32 32 PM](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/c913d533-a2a0-4eb0-b28d-cfe4a0e90c7a)
+![2](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/3d9f8193-d0e2-4eeb-8a1d-c160ae9ed226)
+![3](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/6ab8be48-0b3a-436f-bb12-f4745facfd23)
+![4](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/9b19059c-5158-4872-aef8-30e35b988031)
+![5](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/d30322c7-8215-4f7d-9a4a-8ec3494ae834)
+![6](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/493739fd-9b7c-4291-a81b-26422247f437)
+![7](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/6febd572-c0a7-42a0-aaff-d082fe942a6c)
+![7-min](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/0e876a1c-b064-42e5-a5a8-0c62731988be)
+![8](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/4d793a63-8963-44e1-97da-62e8de708150)
+![9](https://github.com/saadhzubairi/Social-Media-Application/assets/69084203/8dfffacf-bfd3-4977-9147-45ed1d013c55)
